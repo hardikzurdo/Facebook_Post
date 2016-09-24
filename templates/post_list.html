@@ -1,7 +1,7 @@
-<!-- DOCTYPE HTML -->
-<HTML>
-	<body>
-		<h1>{{ title }} Templates is working !!!! </h1>
+
+{% extends "base.html" %}
+{% block content %}
+		<h1>{{ title }}  </h1>
 
 		{% for obj in object_list %}
 		/post/id/
@@ -13,5 +13,4 @@
 		{{obj.id}}<br/>
 
 		{% endfor %}
-	</body>
-</HTML>
+	{% endblock content %}
