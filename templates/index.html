@@ -1,0 +1,17 @@
+<!-- DOCTYPE HTML -->
+<HTML>
+	<body>
+		<h1>{{ title }} Templates is working !!!! </h1>
+
+		{% for obj in object_list %}
+		/post/id/
+		{% url "posts:detail" id=obj.id %}
+		<a href = '{{ obj.get_absolute_url }}'>{{ obj.title}}</a><br/>
+		{{obj.content}}<br/>
+		{{obj.timestamp}}<br/>
+		{{obj.updated}}<br/>
+		{{obj.id}}<br/>
+
+		{% endfor %}
+	</body>
+</HTML>
