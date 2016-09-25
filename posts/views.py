@@ -1,6 +1,7 @@
 from urllib import quote_plus
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, Http404
+from django.db.models import Q 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -35,6 +36,14 @@ def post_detail(request,id=None):
 
 def post_list(request):
 	queryset_list = Post.objects.all().order_by("-timestamp","-updated")
+	
+	query = request.GET.get("q")
+	if query:
+		queryset_list = queryset_list.filter(
+			Q(title__icontains=query)|
+			Q(content__icontains=query)
+			).distinct()
+
 	paginator = Paginator(queryset_list, 10) # Show 25 contacts per page
 	page_request_var = "page"
 	page = request.GET.get(page_request_var)

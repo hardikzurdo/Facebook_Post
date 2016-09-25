@@ -12,7 +12,7 @@
 		{% if instance.image %}
 		<img src='{{ instance.image.url }}' class ='img-responsive'/>
 		{% endif %}
-		<h1>{{title}}<small>{{ instance.timestamp }}</small> </h1>
+		<h1>{{title}}<small><i>    <br / >{{ instance.publish }}</i></small> </h1>
 		<p>Author : {{instance.user}}</p>
 
 		<!-- <p><div class="fb-like" data-href="{{requeest.build_absolute_uri}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></p> -->
