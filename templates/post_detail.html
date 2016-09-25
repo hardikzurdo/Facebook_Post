@@ -13,18 +13,25 @@
 		<img src='{{ instance.image.url }}' class ='img-responsive'/>
 		{% endif %}
 		<h1>{{title}}<small>{{ instance.timestamp }}</small> </h1>
+		<p>Author : {{instance.user}}</p>
 
-		<a href="https://www.facebook.com/sharer/sharer.php?u={{requeest.build_absolute_uri}}">Facebook |</a>
+		<!-- <p><div class="fb-like" data-href="{{requeest.build_absolute_uri}}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></p> -->
+		<p><div class="fb-like" data-href="{{requeest.build_absolute_uri}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></p><hr />
+		<!-- <p><a href="https://www.facebook.com/sharer/sharer.php?u={{requeest.build_absolute_uri}}">Facebook |</a>
 
 		<a href="https://twitter.com/home?status={{ share_string }}%20{{requeest.build_absolute_uri}}">Twitter |</a>
 
 		<a href='https://plus.google.com/share?url={{requeest.build_absolute_uri}}'>Google Plus |</a>
 
-		<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://swiftforentrepreneurs.com/&title={{instance.title}}&summary={{share_string}}&source={{requeest.build_absolute_uri}}">Linkedin |</a>
-
+		<a href="https://www.linkedin.com/shareArticle?mini=true&url=http://swiftforentrepreneurs.com/&title={{instance.title}}&summary={{share_string}}&source={{requeest.build_absolute_uri}}">Linkedin |</a></p> -->
+		<div class='row'>
+		<div class = 'col-sm-12'>
 		{{instance.content | linebreaks }}
-		
-
+		<hr />
+		<br />
+		<div class="fb-comments" data-href="{{requeest.build_absolute_uri}}" data-numposts="5"></div>
+		</div>
+		</div>
 		</div>
 		
 		{% endblock content %}
